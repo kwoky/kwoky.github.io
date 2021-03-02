@@ -10,6 +10,9 @@
     <p>Something went wrong, please try again!</p>
   </div>
 
+  <div id="envid">
+  </div>
+
   <script type="text/javascript">
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -27,7 +30,8 @@
     }
 
     if (urlParams.has('env')) {
-      document.write('Reference number: ' + urlParams.get('env'));
+      var envid_msg = document.createTextNode('Reference number: ' + urlParams.get('env'));
+      document.getElementById('envid').appendChild(envid_msg)
     }
   </script>
 
