@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="completed" style="display: none">
+    <h1>Your membership application has been submitted successfully!</h1>
+    <p> It is currently being processed and we will notify you of the success in the next few days.</p>
+  </div>
+
+  <div id="fail" style="display: none">
+    <p>Something went wrong, please try again!</p>
+  </div>
+
+  <script type="text/javascript">
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var message
+    if (urlParams.has('status')) {
+      if (urlParams.get('status') == 'completed'){
+        //show success div
+        message = document.getElementById('completed');
+        message.style.display = "block";
+      }else{
+        //show error div
+        message = document.getElementById('fail');
+        message.style.display = "block";
+      }
+    }
+
+    if (urlParams.has('env')) {
+      document.write('Reference number: ' + urlParams.get('env'));
+    }
+  </script>
+
+</body>
+</html>
